@@ -1,10 +1,9 @@
 import { ModeNightRounded, LightModeRounded } from "@mui/icons-material";
 import { Fab } from "@mui/material";
-const ToggleThemeButton = ({theme, toggleTheme}) => {
-  
+const ToggleThemeButton = ({ isLightMode, toggleTheme }) => {
   return (
-    <Fab value={theme} onClick={toggleTheme}>
-      {theme ? <ModeNightRounded /> : <LightModeRounded /> }
+    <Fab value={isLightMode} onClick={toggleTheme}>
+      {isLightMode ? <ModeNightRounded /> : <LightModeRounded />}
     </Fab>
   );
 };
