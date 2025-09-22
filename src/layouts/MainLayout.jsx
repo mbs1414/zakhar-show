@@ -27,7 +27,10 @@ const MainLayout = ({ children }) => {
             height: "100vh",
           }}
         >
-          <ToggleThemeButton toggleTheme={toggleTheme} theme={isLightMode} />
+          <ToggleThemeButton
+            toggleTheme={toggleTheme}
+            isLightMode={isLightMode}
+          />
           {children}
         </Box>
       </ThemeProvider>
