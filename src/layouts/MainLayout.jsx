@@ -3,22 +3,19 @@ import { CacheProvider } from "@emotion/react";
 import { prefixer } from "stylis";
 import rtlPlugin from "@mui/stylis-plugin-rtl";
 import createCache from "@emotion/cache";
-import ToggleThemeButton from "../components/ToggleThemeButton";
-import { useState } from "react";
 import { darkTheme, lightTheme } from "./theme";
+import { useSelector } from "react-redux";
 
 const MainLayout = ({ children }) => {
-  const [isLightMode, setIsLightMode] = useState(true); // true = light, false = dark
-  const toggleTheme = () => {
-    setIsLightMode((prevTheme) => !prevTheme);
-  };
+  const theme = useSelector((state) => state.themeChanger.value);
+
   const cacheRTL = createCache({
     key: "muirtl",
     stylisPlugins: [prefixer, rtlPlugin],
   });
   return (
     <CacheProvider value={cacheRTL}>
-      <ThemeProvider theme={isLightMode ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme ? lightTheme : darkTheme}>
         <Box
           sx={{
             backgroundColor: (theme) => theme.palette.background.default,
@@ -27,10 +24,6 @@ const MainLayout = ({ children }) => {
             height: "100vh",
           }}
         >
-          <ToggleThemeButton
-            toggleTheme={toggleTheme}
-            isLightMode={isLightMode}
-          />
           {children}
         </Box>
       </ThemeProvider>

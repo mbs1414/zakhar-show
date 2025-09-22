@@ -4,6 +4,7 @@ import { MenuRounded, ArrowForward, ArrowBack } from "@mui/icons-material";
 import MuiAppBar from "@mui/material/AppBar";
 import { Drawer, IconButton, useTheme } from "@mui/material";
 import { useState } from "react";
+import ToggleThemeButton from "../components/ToggleThemeButton"
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -89,6 +90,7 @@ const Navbar = () => {
           >
             <MenuRounded />
           </IconButton>
+          <ToggleThemeButton/>
         </Toolbar>
       </AppBar>
       <Drawer
