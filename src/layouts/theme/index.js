@@ -16,21 +16,27 @@ export const darkTheme = createTheme({
     },
     primary: {
       main: "#BD93F9",
+      contrastText: "#1E1E2F",
     },
     secondary: {
       main: "#FF79C6",
+      contrastText: "#3A0022",
     },
     error: {
       main: "#FF5555",
+      contrastText: "#330000",
     },
     warning: {
       main: "#F1FA8C",
+      contrastText: "#333300",
     },
     info: {
       main: "#8BE9FD",
+      contrastText: "#003344",
     },
     success: {
       main: "#50FA7B",
+      contrastText: "#00331A",
     },
   },
 });
@@ -52,21 +58,27 @@ export const lightTheme = createTheme({
     },
     primary: {
       main: "#1976D2",
+      contrastText: "#FFFFFF",
     },
     secondary: {
       main: "#D32F2F",
+      contrastText: "#FFCCCC",
     },
     error: {
       main: "#D32F2F",
+      contrastText: "#FFCCCC",
     },
     warning: {
       main: "#FBC02D",
+       contrastText: "#3B3000",
     },
     info: {
       main: "#0288D1",
+      contrastText: "#E0F7FA",
     },
     success: {
       main: "#388E3C",
+      contrastText: "#D0F0C0",
     },
   },
 });
