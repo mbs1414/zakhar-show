@@ -5,8 +5,9 @@ import { setTheme } from "../features/themeSlice";
 const ToggleThemeButton = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.themeChanger.value);
+  
   return (
-    <Fab value={theme} onClick={() => dispatch(setTheme())}>
+    <Fab onClick={() => dispatch(setTheme())} size="small" color={theme ? "primary" : "warning"}>
       {theme ? <ModeNightRounded /> : <LightModeRounded />}
     </Fab>
   );
