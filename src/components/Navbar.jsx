@@ -4,7 +4,8 @@ import { MenuRounded, ArrowForward, ArrowBack } from "@mui/icons-material";
 import MuiAppBar from "@mui/material/AppBar";
 import { Drawer, IconButton, useTheme } from "@mui/material";
 import { useState } from "react";
-import ToggleThemeButton from "../components/ToggleThemeButton"
+import ToggleThemeButton from "../components/ToggleThemeButton";
+import DrawerContent from "./DrawerContent";
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -60,7 +61,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-const Navbar = () => {
+const Navbar = ({ children }) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -90,9 +91,10 @@ const Navbar = () => {
           >
             <MenuRounded />
           </IconButton>
-          <ToggleThemeButton/>
+          <ToggleThemeButton />
         </Toolbar>
       </AppBar>
+      <Main open={open}>{children}</Main>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -115,6 +117,7 @@ const Navbar = () => {
             {theme.direction === "ltr" ? <ArrowBack /> : <ArrowForward />}
           </IconButton>
         </DrawerHeader>
+        <DrawerContent />
       </Drawer>
     </>
   );

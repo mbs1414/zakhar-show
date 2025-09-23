@@ -5,8 +5,9 @@ import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <MainLayout>
-      <Navbar />
-      <Outlet />
+      <Navbar>
+        <Outlet />
+      </Navbar>
     </MainLayout>
   );
 };
