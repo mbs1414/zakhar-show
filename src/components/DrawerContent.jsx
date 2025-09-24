@@ -50,15 +50,18 @@ const DrawerContent = () => {
             <ListItemButton
               sx={{
                 backgroundColor:
-                  location.pathname === page.path && "background.default",
+                  location.pathname === page.path && "info.contrastText",
                 "&:hover": {
-                  backgroundColor: "background.default",
-                  transition: "background-color 0.3s ease"
+                  backgroundColor: "info.contrastText",
+                  transition: "background-color 0.3s ease",
                 },
               }}
             >
               <ListItemIcon
-                sx={{ color: (theme) => theme.palette[page.iconColor].main, minWidth: '2rem' }}
+                sx={{
+                  color: (theme) => theme.palette[page.iconColor].main,
+                  minWidth: "2rem",
+                }}
               >
                 {page.icon}
               </ListItemIcon>
