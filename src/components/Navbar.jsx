@@ -6,6 +6,7 @@ import { Drawer, IconButton, SwipeableDrawer, useTheme } from "@mui/material";
 import { useState } from "react";
 import ToggleThemeButton from "../components/ToggleThemeButton";
 import DrawerContent from "./DrawerContent";
+import { useMediaQueries } from "../utils/mediaQueries";
 
 const drawerWidth = 240;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -16,7 +17,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: open ? `${drawerWidth}px` : 0, // تغییر این خط
+    marginLeft: open ? `${drawerWidth}px` : 0,
   })
 );
 
@@ -61,6 +62,8 @@ const Navbar = ({ children }) => {
     typeof navigator !== "undefined" &&
     /iPad|iPhone|iPod/.test(navigator.userAgent);
   const anchor = "left";
+
+  const {isMd} = useMediaQueries()
   return (
     <>
       <AppBar color="primary">
@@ -83,7 +86,7 @@ const Navbar = ({ children }) => {
           <ToggleThemeButton />
         </Toolbar>
       </AppBar>
-      <Main open={open}>
+      <Main open={isMd ? open : false}>
         <DrawerHeader />
         {children}
       </Main>
@@ -106,7 +109,7 @@ const Navbar = ({ children }) => {
           }}
           variant="persistent"
           anchor={anchor}
-          open={open}
+          open={isMd ? open : true}
         >
           <DrawerHeader>
             <IconButton
