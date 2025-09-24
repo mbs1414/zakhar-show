@@ -49,7 +49,7 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: "#FAFAFA",
+      default: "#E0E0E0",
       paper: "#FFFFFF",
     },
     text: {

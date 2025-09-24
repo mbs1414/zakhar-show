@@ -1,6 +1,6 @@
 import {
   MovieTwoTone,
-  SmartDisplayRounded,
+  TheaterComedyRounded,
   VideoLibraryRounded,
 } from "@mui/icons-material";
 import {
@@ -28,7 +28,7 @@ const DrawerContent = () => {
       name: "چیزهایی که باید دید",
       path: "/watchlist",
       component: <WatchList />,
-      icon: <SmartDisplayRounded />,
+      icon: <TheaterComedyRounded />,
       iconColor: "error",
     },
     {
@@ -53,11 +53,12 @@ const DrawerContent = () => {
                   location.pathname === page.path && "background.default",
                 "&:hover": {
                   backgroundColor: "background.default",
+                  transition: "background-color 0.3s ease"
                 },
               }}
             >
               <ListItemIcon
-                sx={{ color: (theme) => theme.palette[page.iconColor].main }}
+                sx={{ color: (theme) => theme.palette[page.iconColor].main, minWidth: '2rem' }}
               >
                 {page.icon}
               </ListItemIcon>
