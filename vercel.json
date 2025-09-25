@@ -1,7 +1,3 @@
 {
-  "functions": {
-    "api/server.js": {
-      "includeFiles": "api/db.json"
-    }
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
