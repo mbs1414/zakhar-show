@@ -1,12 +1,11 @@
 import {
   Box,
-  Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Chip,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import Ratings from "./Ratings";
@@ -76,17 +75,19 @@ const MediaCard = () => {
           <Typography variant="h6" component="div">
             description:
           </Typography>
-          <Typography
-            sx={{
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 3,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            {movie.extract}
-          </Typography>
+          <Tooltip title={movie.extract}>
+            <Typography
+              sx={{
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 3,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {movie.extract}
+            </Typography>
+          </Tooltip>
         </Box>
         <Box component="div" sx={{ display: "flex", gap: "0.5rem" }}>
           <Typography variant="h6" component="div">
