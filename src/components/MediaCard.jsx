@@ -39,6 +39,7 @@ const MediaCard = () => {
       sx={{
         backgroundColor: (theme) => theme.palette.background.paper,
         display: "flex",
+        width: "100%",
       }}
     >
       <CardMedia
@@ -47,7 +48,7 @@ const MediaCard = () => {
         alt="Paella dish"
         sx={{ width: "15rem", height: "23rem", objectFit: "cover" }}
       />
-      <CardContent>
+      <CardContent sx={{ width: "60%", "&.MuiCardContent-root": { pb: 0 } }}>
         <Typography variant="h5" component="div">
           {movie.title}
         </Typography>
@@ -55,7 +56,10 @@ const MediaCard = () => {
           <Typography variant="h6" component="div">
             genres:
           </Typography>
-          <Stack direction="row" sx={{ display: "flex", gap: "0.5rem" }}>
+          <Stack
+            direction="row"
+            sx={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}
+          >
             {movie.genres.map((genre) => (
               <Chip
                 key={genre}
@@ -88,7 +92,10 @@ const MediaCard = () => {
           <Typography variant="h6" component="div">
             cast:
           </Typography>
-          <Stack direction="row" sx={{ display: "flex", gap: "0.5rem" }}>
+          <Stack
+            direction="row"
+            sx={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}
+          >
             {movie.cast.map((actor) => (
               <Chip
                 variant="outlined"
