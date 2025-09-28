@@ -18,10 +18,9 @@ const MainLayout = ({ children }) => {
       <ThemeProvider theme={theme ? lightTheme : darkTheme}>
         <Box
           sx={{
-            backgroundColor: (theme) => theme.palette.background.default,
             m: 0,
             p: 0,
-            height: "100vh",
+
           }}
         >
           {children}

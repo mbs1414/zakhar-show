@@ -17,7 +17,9 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: open ? `${drawerWidth}px` : 0,
+    paddingLeft: open ? `${drawerWidth + 10}px` : "0.6rem",
+    backgroundColor: theme.palette.background.default,
+    height: "100%",
   })
 );
 
@@ -30,7 +32,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`, // استفاده از width تغییر کرده
-    marginLeft: `${drawerWidth}px`,
+    paddingLeft: `${drawerWidth + 10}px`,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -63,7 +65,7 @@ const Navbar = ({ children }) => {
     /iPad|iPhone|iPod/.test(navigator.userAgent);
   const anchor = "left";
 
-  const {isMd} = useMediaQueries()
+  const { isMd } = useMediaQueries();
   return (
     <>
       <AppBar color="primary">
