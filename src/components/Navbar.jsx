@@ -17,8 +17,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    paddingLeft: open ? `${drawerWidth + 10}px` : "0.6rem",
-    backgroundColor: theme.palette.background.default,
+    marginLeft: open ? `${drawerWidth}px` : "0",
     height: "100%",
   })
 );
@@ -32,7 +31,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`, // استفاده از width تغییر کرده
-    paddingLeft: `${drawerWidth + 10}px`,
+    marginLeft: `${drawerWidth}px`,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
