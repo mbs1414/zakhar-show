@@ -49,6 +49,7 @@ const DrawerContent = () => {
           >
             <ListItemButton
               sx={{
+                direction: "ltr",
                 backgroundColor:
                   location.pathname === page.path && "info.contrastText",
                 "&:hover": {

@@ -68,7 +68,7 @@ const Navbar = ({ children }) => {
   const { isMd } = useMediaQueries();
   return (
     <>
-      <AppBar color="primary">
+      <AppBar color="primary" dir="rtl">
         <Toolbar>
           <IconButton
             size="large"
