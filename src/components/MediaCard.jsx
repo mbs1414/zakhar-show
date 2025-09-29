@@ -104,11 +104,10 @@ const MediaCard = () => {
               genres:
             </Typography>
             <ChipsWithPopover
-              array={movie.genres}
-              firstColor="primary"
-              secondColor=""
-              variant="filled"
-              secondVariant="outlined"
+              items={movie.genres}
+              chipColor="primary"
+              chipVariant="filled"
+              overflowChipVariant ="outlined"
             />
           </Box>
           <Box component="div">
@@ -137,10 +136,10 @@ const MediaCard = () => {
               cast:
             </Typography>
             <ChipsWithPopover
-              array={movie.cast}
-              firstColor="info"
-              firstVariant="outlined"
-              secondVariant="filled"
+              items={movie.cast}
+              chipColor="info"
+              chipVariant="outlined"
+              overflowChipVariant ="filled"
             />
           </Box>
           <Box

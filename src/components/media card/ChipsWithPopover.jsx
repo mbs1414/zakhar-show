@@ -3,10 +3,10 @@ import { Chip, Fab, Popover, Stack } from "@mui/material";
 import { useState } from "react";
 
 const ChipsWithPopover = ({
-  array,
-  firstColor,
-  firstVariant,
-  secondVariant,
+  items,
+  chipColor ,
+  chipVariant ,
+  overflowChipVariant ,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -28,16 +28,16 @@ const ChipsWithPopover = ({
         alignItems: "center",
       }}
     >
-      {array.slice(0, 2).map((item) => (
+      {items.slice(0, 2).map((item) => (
         <Chip
-          variant={firstVariant}
+          variant={chipVariant }
           key={item}
           label={item}
-          color={firstColor}
+          color={chipColor }
 
         />
       ))}
-      {array.length > 3 && (
+      {items.length > 2 && (
         <>
           <Fab
             color="success"
@@ -67,12 +67,12 @@ const ChipsWithPopover = ({
                 padding: "0.5rem",
               }}
             >
-              {array.map((item) => (
+              {items.map((item) => (
                 <Chip
-                  variant={secondVariant}
+                  variant={overflowChipVariant }
                   key={item}
                   label={item}
-                  color={firstColor}
+                  color={chipColor }
                 />
               ))}
             </Stack>
