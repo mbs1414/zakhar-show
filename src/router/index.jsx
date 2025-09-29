@@ -4,6 +4,7 @@ import Media from "../components/Media";
 import WatchList from "../components/WatchList";
 import Collection from "../components/Collection";
 import ErrorCard from "../components/ErrorCard";
+import Hadi from "../components/Hadi";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
       { path: "/media", element: <Media /> },
       { path: "/watchlist", element: <WatchList /> },
       { path: "/Collection", element: <Collection /> },
+      { path: "/hadi", element: <Hadi /> },
     ],
   },
 ]);

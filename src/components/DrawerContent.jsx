@@ -1,4 +1,5 @@
 import {
+  MedicalServices,
   MovieTwoTone,
   TheaterComedyRounded,
   VideoLibraryRounded,
@@ -14,6 +15,7 @@ import Media from "./Media";
 import WatchList from "./WatchList";
 import Collection from "./Collection";
 import { NavLink, useLocation } from "react-router-dom";
+import Hadi from "./Hadi";
 const DrawerContent = () => {
   const location = useLocation();
   const pages = [
@@ -37,6 +39,13 @@ const DrawerContent = () => {
       component: <Collection />,
       icon: <VideoLibraryRounded />,
       iconColor: "success",
+    },
+    {
+      name: "هادی",
+      path: "/hadi",
+      component: <Hadi />,
+      icon: <MedicalServices />,
+      iconColor: "info",
     },
   ];
   return (
