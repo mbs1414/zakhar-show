@@ -20,7 +20,9 @@ const MainLayout = ({ children }) => {
           sx={{
             m: 0,
             p: 0,
-            backgroundColor: (theme) => theme.palette.background.default
+            backgroundColor: (theme) => theme.palette.background.default,
+            minHeight: "100vh",
+            minWidth: "100vw"
           }}
         >
           {children}
