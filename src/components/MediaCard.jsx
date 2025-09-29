@@ -5,21 +5,16 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Fab,
-  IconButton,
-  Popover,
-  Stack,
   Tooltip,
   Typography,
 } from "@mui/material";
 import Ratings from "./Ratings";
 import { useMediaQueries } from "../utils/mediaQueries";
 import {
-  AddRounded,
   BookmarkAddRounded,
   Collections,
 } from "@mui/icons-material";
-import { useState } from "react";
+import ChipsWithPopover from "./media card/ChipsWithPopover";
 
 const MediaCard = () => {
   const { isSm } = useMediaQueries();
@@ -45,35 +40,6 @@ const MediaCard = () => {
     thumbnail_height: 316,
     rating: 0,
   };
-  const sliceArray = (array) => {
-    return array.slice(0, isSm ? 3 : 2);
-  };
-
-  // Pop over
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [anchorElGenre, setAnchorElGenre] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClickGenre = (event) => {
-    setAnchorElGenre(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleCloseGenre = () => {
-    setAnchorElGenre(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-  const openGenre = Boolean(anchorElGenre);
-  const idGenre = open ? "simple-popover" : undefined;
-  // Pop over
 
   return (
     <Box
@@ -93,7 +59,7 @@ const MediaCard = () => {
           image={movie.thumbnail}
           alt={movie.title}
           sx={{
-            width: "15rem",
+            width: { xs: "15rem", md: "12rem" },
             height: isSm ? "23rem" : "21rem",
             objectFit: "fill",
             flex: "1 0 auto",
@@ -137,68 +103,13 @@ const MediaCard = () => {
             <Typography variant="h6" component="div">
               genres:
             </Typography>
-            <Stack
-              direction="row"
-              sx={{
-                display: "flex",
-                gap: "0.5rem",
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              {sliceArray(movie.genres).map((genre) => (
-                <Chip
-                  key={genre}
-                  label={genre}
-                  color="primary"
-                  sx={{
-                    color: "primary.contrastText",
-                  }}
-                />
-              ))}
-              {movie.genres.length > 3 && (
-                <>
-                  <Fab
-                    color="success"
-                    aria-label="show more"
-                    size="small"
-                    onClick={handleClickGenre}
-                  >
-                    <AddRounded />
-                  </Fab>
-                  <Popover
-                    id={idGenre}
-                    open={openGenre}
-                    anchorEl={anchorElGenre}
-                    onClose={handleCloseGenre}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                  >
-                    <Stack
-                      direction="row"
-                      sx={{
-                        display: "flex",
-                        gap: "0.5rem",
-                        flexWrap: "wrap",
-                        alignItems: "center",
-                        padding: "0.5rem",
-                      }}
-                    >
-                      {movie.genres.map((genre) => (
-                        <Chip
-                          variant="outlined"
-                          key={genre}
-                          label={genre}
-                          color="primary"
-                        />
-                      ))}
-                    </Stack>
-                  </Popover>
-                </>
-              )}
-            </Stack>
+            <ChipsWithPopover
+              array={movie.genres}
+              firstColor="primary"
+              secondColor=""
+              variant="filled"
+              secondVariant="outlined"
+            />
           </Box>
           <Box component="div">
             <Typography variant="h6" component="div">
@@ -225,69 +136,12 @@ const MediaCard = () => {
             <Typography variant="h6" component="div">
               cast:
             </Typography>
-            <Stack
-              direction="row"
-              sx={{
-                display: "flex",
-                gap: "0.5rem",
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              {sliceArray(movie.cast).map((actor) => (
-                <Chip
-                  variant="outlined"
-                  key={actor}
-                  label={actor}
-                  color="info"
-                  sx={{
-                    color: "text.primary",
-                  }}
-                />
-              ))}
-              {movie.cast.length > 3 && (
-                <>
-                  <Fab
-                    color="success"
-                    aria-label="show more"
-                    size="small"
-                    onClick={handleClick}
-                  >
-                    <AddRounded />
-                  </Fab>
-                  <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                  >
-                    <Stack
-                      direction="row"
-                      sx={{
-                        display: "flex",
-                        gap: "0.5rem",
-                        flexWrap: "wrap",
-                        alignItems: "center",
-                        padding: "0.5rem",
-                      }}
-                    >
-                      {movie.cast.map((actor) => (
-                        <Chip
-                          variant="filled"
-                          key={actor}
-                          label={actor}
-                          color="info"
-                        />
-                      ))}
-                    </Stack>
-                  </Popover>
-                </>
-              )}
-            </Stack>
+            <ChipsWithPopover
+              array={movie.cast}
+              firstColor="info"
+              firstVariant="outlined"
+              secondVariant="filled"
+            />
           </Box>
           <Box
             component="div"
@@ -298,7 +152,10 @@ const MediaCard = () => {
             </Typography>
             <Ratings />
           </Box>
-          <Box component="div" sx={{ display: "flex", gap: "0.5rem" }}>
+          <Box
+            component="div"
+            sx={{ display: "flex", gap: "0.5rem", my: "0.8rem" }}
+          >
             <Button
               variant="contained"
               color="error"
