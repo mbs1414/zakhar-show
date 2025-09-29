@@ -98,31 +98,24 @@ const Navbar = ({ children }) => {
         open={open}
         onClose={handleDrawerClose}
         onOpen={handleDrawerOpen}
-      >
-        <Drawer
-          sx={{
+        sx={{
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="persistent"
-          anchor={anchor}
-          open={isMd ? open : true}
-        >
-          <DrawerHeader>
-            <IconButton
-              onClick={handleDrawerClose}
-              color="text.primary"
-              size="large"
-            >
-              {theme.direction === "ltr" ? <ArrowBack /> : <ArrowForward />}
-            </IconButton>
-          </DrawerHeader>
-          <DrawerContent />
-        </Drawer>
+            boxSizing: "border-box",
+          },
+        }}
+      >
+        <DrawerHeader>
+          <IconButton
+            onClick={handleDrawerClose}
+            color="text.primary"
+            size="large"
+          >
+            {theme.direction === "ltr" ? <ArrowBack /> : <ArrowForward />}
+          </IconButton>
+        </DrawerHeader>
+        <DrawerContent />
       </SwipeableDrawer>
     </>
   );
