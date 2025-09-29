@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
@@ -290,37 +291,30 @@ const MediaCard = () => {
           </Box>
           <Box
             component="div"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
+            sx={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
           >
-            <Box
-              component="div"
-              sx={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+            <Typography variant="h6" component="div">
+              rating:
+            </Typography>
+            <Ratings />
+          </Box>
+          <Box component="div" sx={{ display: "flex", gap: "0.5rem" }}>
+            <Button
+              variant="contained"
+              color="error"
+              sx={{ flex: 1, direction: "ltr" }}
+              endIcon={<BookmarkAddRounded />}
             >
-              <Typography variant="h6" component="div">
-                rating:
-              </Typography>
-              <Ratings />
-            </Box>
-            <Box component="div">
-              <Tooltip title="add to watch list">
-                <IconButton color="error" size="medium" aria-label="watchlist">
-                  <BookmarkAddRounded />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="add to collection">
-                <IconButton
-                  color="success"
-                  size="medium"
-                  aria-label="collection"
-                >
-                  <Collections />
-                </IconButton>
-              </Tooltip>
-            </Box>
+              چیزی که باید دید
+            </Button>
+            <Button
+              variant="contained"
+              color="success"
+              sx={{ flex: 1, direction: "ltr" }}
+              endIcon={<Collections />}
+            >
+              گنجینه
+            </Button>
           </Box>
         </CardContent>
       </Card>
