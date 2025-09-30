@@ -5,16 +5,13 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import Ratings from "./Ratings";
 import { useMediaQueries } from "../utils/mediaQueries";
-import {
-  BookmarkAddRounded,
-  Collections,
-} from "@mui/icons-material";
-import ChipsWithPopover from "./media card/ChipsWithPopover";
+import { BookmarkAddRounded, Collections } from "@mui/icons-material";
+import Description from "./media card/Description";
+import InfoSection from "./media card/InfoSection";
 
 const MediaCard = () => {
   const { isSm } = useMediaQueries();
@@ -99,49 +96,21 @@ const MediaCard = () => {
               }}
             />
           </Box>
-          <Box sx={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-            <Typography variant="h6" component="div">
-              genres:
-            </Typography>
-            <ChipsWithPopover
-              items={movie.genres}
-              chipColor="primary"
-              chipVariant="filled"
-              overflowChipVariant ="outlined"
-            />
-          </Box>
-          <Box component="div">
-            <Typography variant="h6" component="div">
-              description:
-            </Typography>
-            <Tooltip title={movie.extract}>
-              <Typography
-                sx={{
-                  display: "-webkit-box",
-                  WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 3,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                {movie.extract}
-              </Typography>
-            </Tooltip>
-          </Box>
-          <Box
-            component="div"
-            sx={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
-          >
-            <Typography variant="h6" component="div">
-              cast:
-            </Typography>
-            <ChipsWithPopover
-              items={movie.cast}
-              chipColor="info"
-              chipVariant="outlined"
-              overflowChipVariant ="filled"
-            />
-          </Box>
+          <InfoSection
+            label="genres:"
+            items={movie.genres}
+            chipColor="primary"
+            chipVariant="filled"
+            overflowChipVariant="outlined"
+          />
+          <Description text={movie.extract} />
+          <InfoSection
+            label="cast:"
+            items={movie.cast}
+            chipColor="info"
+            chipVariant="outlined"
+            overflowChipVariant="filled"
+          />
           <Box
             component="div"
             sx={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
