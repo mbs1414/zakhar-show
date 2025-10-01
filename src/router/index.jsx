@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Media from "../components/Media";
-import WatchList from "../components/WatchList";
-import Collection from "../components/Collection";
+import Media from "../pages/Media";
+import WatchList from "../pages/WatchList";
+import Collection from "../pages/Collection";
 import ErrorCard from "../components/ErrorCard";
-import Hadi from "../components/Hadi";
+import Hadi from "../pages/Hadi";
 export const router = createBrowserRouter([
   {
     path: "/",

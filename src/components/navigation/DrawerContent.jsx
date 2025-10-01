@@ -11,11 +11,11 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import Media from "./Media";
-import WatchList from "./WatchList";
-import Collection from "./Collection";
+import Media from "../../pages/Media";
+import WatchList from "../../pages/WatchList";
+import Collection from "../../pages/Collection";
 import { NavLink, useLocation } from "react-router-dom";
-import Hadi from "./Hadi";
+import Hadi from "../../pages/Hadi";
 const DrawerContent = () => {
   const location = useLocation();
   const pages = [

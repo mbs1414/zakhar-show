@@ -7,11 +7,11 @@ import {
   Chip,
   Typography,
 } from "@mui/material";
-import Ratings from "./Ratings";
-import { useMediaQueries } from "../utils/mediaQueries";
+import Ratings from "../Ratings";
+import { useMediaQueries } from "../../utils/mediaQueries";
 import { BookmarkAddRounded, Collections } from "@mui/icons-material";
-import Description from "./media card/Description";
-import InfoSection from "./media card/InfoSection";
+import Description from "./Description";
+import InfoSection from "./InfoSection";
 
 const MediaCard = () => {
   const { isSm } = useMediaQueries();

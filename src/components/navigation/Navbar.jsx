@@ -1,14 +1,11 @@
 import styled from "@emotion/styled";
-import Toolbar from "@mui/material/Toolbar";
-import { MenuRounded, ArrowForward, ArrowBack } from "@mui/icons-material";
-import MuiAppBar from "@mui/material/AppBar";
-import { Drawer, IconButton, SwipeableDrawer, useTheme } from "@mui/material";
+import { ArrowForward, ArrowBack } from "@mui/icons-material";
+import { IconButton, SwipeableDrawer, useTheme } from "@mui/material";
 import { useState } from "react";
-import ToggleThemeButton from "../components/ToggleThemeButton";
 import DrawerContent from "./DrawerContent";
-import { useMediaQueries } from "../utils/mediaQueries";
-
-const drawerWidth = 240;
+import { useMediaQueries } from "../../utils/mediaQueries";
+import Header from "./Header";
+import { drawerWidth } from "../../constants/globals";
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -21,23 +18,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     height: "100%",
   })
 );
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`, // استفاده از width تغییر کرده
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -67,26 +47,7 @@ const Navbar = ({ children }) => {
   const { isMd } = useMediaQueries();
   return (
     <>
-      <AppBar color="primary" dir="rtl">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="text.primary"
-            aria-label="open drawer"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && { display: "none" },
-            ]}
-            onClick={handleDrawerOpen}
-          >
-            <MenuRounded />
-          </IconButton>
-          <ToggleThemeButton />
-        </Toolbar>
-      </AppBar>
+      <Header handleDrawerOpen={handleDrawerOpen} />
       <Main open={isMd ? open : false}>
         <DrawerHeader />
         {children}
