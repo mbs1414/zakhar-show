@@ -1,5 +1,5 @@
 import { Grid, Paper } from "@mui/material";
-import MediaCard from "./MediaCard";
+import MediaCard from "../components/media card/MediaCard";
 import styled from "@emotion/styled";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",

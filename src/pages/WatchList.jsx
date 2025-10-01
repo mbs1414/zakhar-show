@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import WatchListCard from "./WatchListCard"
+import WatchListCard from "../components/WatchListCard"
 const WatchList = () => {
   return (
     <Grid container>
