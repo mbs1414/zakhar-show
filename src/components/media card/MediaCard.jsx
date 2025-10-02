@@ -10,33 +10,11 @@ import {
 import Ratings from "../Ratings";
 import { useMediaQueries } from "../../utils/mediaQueries";
 import { BookmarkAddRounded, Collections } from "@mui/icons-material";
-import Description from "./Description";
-import InfoSection from "./InfoSection";
+import { Description, InfoSection } from "./";
+import { movie } from "../../constants/globals";
 
 const MediaCard = () => {
   const { isSm } = useMediaQueries();
-  const movie = {
-    id: 14,
-    title: "John Henry",
-    year: 2020,
-    cast: [
-      "Terry Crews",
-      "Ludacris",
-      "Jamila Velazquez",
-      "Ken Foree",
-      "Tyler Alvarez",
-      "Joseph Julian Soria",
-    ],
-    genres: ["Drama", "Thriller"],
-    href: "John_Henry_(2020_film)",
-    extract:
-      "John Henry is a 2020 American thriller drama film starring Terry Crews and Ludacris, and directed by Will Forbes. Inspired by the folk lore of John Henry, the plot follows an ex-gang member from Los Angeles who must help two immigrant children who are on the run from his former crime boss. The film had a limited release on January 24, 2020, and received negative reviews from critics.",
-    thumbnail:
-      "https://upload.wikimedia.org/wikipedia/en/b/b8/JohnHenryPoster.jpeg",
-    thumbnail_width: 220,
-    thumbnail_height: 316,
-    rating: 0,
-  };
 
   return (
     <Box

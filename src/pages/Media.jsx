@@ -1,16 +1,5 @@
-import { Grid, Paper } from "@mui/material";
-import MediaCard from "../components/media card/MediaCard";
-import styled from "@emotion/styled";
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
-}));
+import { Grid } from "@mui/material";
+import { MediaCard } from "../components/media card";
 const Media = () => {
   return (
     <Grid container spacing={2} sx={{ direction: "rtl" }}>

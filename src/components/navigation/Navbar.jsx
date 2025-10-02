@@ -2,9 +2,8 @@ import styled from "@emotion/styled";
 import { ArrowForward, ArrowBack } from "@mui/icons-material";
 import { IconButton, SwipeableDrawer, useTheme } from "@mui/material";
 import { useState } from "react";
-import DrawerContent from "./DrawerContent";
+import { DrawerContent, Header } from "./";
 import { useMediaQueries } from "../../utils/mediaQueries";
-import Header from "./Header";
 import { drawerWidth } from "../../constants/globals";
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
