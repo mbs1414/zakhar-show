@@ -11,43 +11,10 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import Media from "../../pages/Media";
-import WatchList from "../../pages/WatchList";
-import Collection from "../../pages/Collection";
 import { NavLink, useLocation } from "react-router-dom";
-import Hadi from "../../pages/Hadi";
+import {pages} from "../../constants/globals"
 const DrawerContent = () => {
   const location = useLocation();
-  const pages = [
-    {
-      name: "سرزمین نمایش‌ ها",
-      path: "/media",
-      component: <Media />,
-      icon: <MovieTwoTone />,
-      iconColor: "primary",
-    },
-    {
-      name: "چیزهایی که باید دید",
-      path: "/watchlist",
-      component: <WatchList />,
-      icon: <TheaterComedyRounded />,
-      iconColor: "error",
-    },
-    {
-      name: "گنجینه تماشا",
-      path: "/collection",
-      component: <Collection />,
-      icon: <VideoLibraryRounded />,
-      iconColor: "success",
-    },
-    {
-      name: "هادی",
-      path: "/hadi",
-      component: <Hadi />,
-      icon: <MedicalServices />,
-      iconColor: "info",
-    },
-  ];
   return (
     <List>
       {pages.map((page, index) => (
