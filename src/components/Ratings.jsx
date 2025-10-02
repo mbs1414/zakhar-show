@@ -1,34 +1,6 @@
 import styled from "@emotion/styled";
-import {
-  SentimentVeryDissatisfiedRounded,
-  SentimentDissatisfiedRounded,
-  SentimentSatisfiedAltRounded,
-  SentimentSatisfiedAltOutlined,
-  SentimentVerySatisfiedOutlined,
-} from "@mui/icons-material";
 import { Rating } from "@mui/material";
-const customIcons = {
-  1: {
-    icon: <SentimentVeryDissatisfiedRounded color="error" />,
-    label: "Very Dissatisfied",
-  },
-  2: {
-    icon: <SentimentDissatisfiedRounded color="error" />,
-    label: "Dissatisfied",
-  },
-  3: {
-    icon: <SentimentSatisfiedAltRounded color="warning" />,
-    label: "Neutral",
-  },
-  4: {
-    icon: <SentimentSatisfiedAltOutlined color="success" />,
-    label: "Satisfied",
-  },
-  5: {
-    icon: <SentimentVerySatisfiedOutlined color="success" />,
-    label: "Very Satisfied",
-  },
-};
+import { ratingIcons } from "../constants/ratingIcons";
 
 const StyledRating = styled(Rating)(({ theme }) => ({
   "& .MuiRating-iconEmpty .MuiSvgIcon-root": {
@@ -40,7 +12,7 @@ const StyledRating = styled(Rating)(({ theme }) => ({
 function IconContainer(props) {
   const { value, ...other } = props;
   const reversedValue = 6 - value;
-  return <span {...other}>{customIcons[reversedValue].icon}</span>;
+  return <span {...other}>{ratingIcons[reversedValue].icon}</span>;
 }
 
 const Ratings = () => {
@@ -49,7 +21,7 @@ const Ratings = () => {
       name="highlight-selected-only"
       defaultValue={2}
       IconContainerComponent={IconContainer}
-      getLabelText={(value) => customIcons[value].label}
+      getLabelText={(value) => ratingIcons[value].label}
       highlightSelectedOnly
     />
   );
