@@ -21,9 +21,9 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-const Header = ({ handleDrawerOpen }) => {
+const Header = ({ handleDrawerOpen, open }) => {
   return (
-    <AppBar color="primary" dir="rtl">
+    <AppBar open={open} color="primary" dir="rtl">
       <Toolbar>
         <IconButton
           size="large"

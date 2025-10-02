@@ -47,7 +47,7 @@ const Navbar = ({ children }) => {
   const { isMd } = useMediaQueries();
   return (
     <>
-      <Header handleDrawerOpen={handleDrawerOpen} />
+      <Header handleDrawerOpen={handleDrawerOpen} open={open} />
       <Main open={isMd ? open : false}>
         <DrawerHeader />
         {children}
